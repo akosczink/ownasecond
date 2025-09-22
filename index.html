@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>SECUND — Own a Second Forever (€1 / £1)</title>
+  <meta name="description" content="Örökíts meg egy egyedi másodpercet mindössze €1 / £1 áron. Hitelesített digitális tanúsítvány + neved az élő Győztesek Falán."/>
+  <meta name="theme-color" content="#0b0f16"/>
+  <style>
+    :root {
+      --bg:#0b0f16; --panel:#0f1321; --line:#1a2336; --text:#e6e9ef;
+      --muted:#aab3c2; --gold:#f5c15c; --accent:#60a5fa;
+      --radius:1rem; --transition:0.25s ease;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6}
+    a{text-decoration:none;color:inherit;transition:opacity var(--transition)}
+    a:hover{opacity:.85}
+    .container{max-width:1120px;margin:0 auto;padding:0 20px}
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:50;background:rgba(11,15,22,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    .nav__in{min-height:64px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:900;font-size:1.2rem;letter-spacing:.5px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:.8rem 1.2rem;border-radius:.9rem;font-weight:700;cursor:pointer;transition:transform var(--transition),opacity var(--transition)}
+    .btn:hover{transform:translateY(-2px)}
+    .btn--primary{background:linear-gradient(180deg,var(--text),#cfd6e4);color:#0b0f16}
+    .btn--gold{background:linear-gradient(180deg,var(--gold),#e0aa3a);color:#0b0f16}
+    /* HERO */
+    .hero{padding:96px 0 64px;border-bottom:1px solid var(--line)}
+    .grid{display:grid;gap:2rem}
+    @media(min-width:980px){.grid{grid-template-columns:1.1fr 1fr}}
+    h1{font-size:clamp(2.2rem,5vw,3.2rem);line-height:1.1;margin:.2rem 0 .8rem}
+    .lead{font-size:1.2rem;color:var(--muted);max-width:62ch;margin-bottom:1.2rem}
+    ul.bullets{list-style:none;margin:.6rem 0 1.2rem;color:#c7cfdb}
+    ul.bullets li{margin:.28rem 0}
+    /* KÁRTYÁK */
+    .stat{display:flex;gap:16px;margin:.8rem 0;flex-wrap:wrap}
+    .card{background:#101827;border:1px solid var(--line);border-radius:12px;padding:12px 16px;min-width:120px;text-align:center}
+    .card b{font-size:20px}
+    /* WINNERS WALL */
+    .section{padding:56px 0;border-bottom:1px solid var(--line)}
+    .wall__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.9rem;margin-top:1rem}
+    .tile{background:linear-gradient(180deg,rgba(16,22,38,.95),rgba(14,20,34,.95));border:1px solid var(--line);border-radius:var(--radius);padding:1rem;position:relative;transition:transform var(--transition)}
+    .tile:hover{transform:translateY(-3px)}
+    .tile strong{color:var(--gold)}
+    .pulse{position:absolute;top:.6rem;right:.6rem;width:8px;height:8px;background:var(--accent);border-radius:50%;box-shadow:0 0 0 0 rgba(96,165,250,.6);animation:pulse 1.8s infinite}
+    @keyframes pulse{to{box-shadow:0 0 0 12px rgba(96,165,250,0)}}
+    footer{padding:24px 0;color:var(--muted);text-align:center}
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container nav__in">
+      <div class="brand">SECUND</div>
+      <div style="display:flex;gap:.75rem;align-items:center">
+        <a href="https://tiktok.com/@time.is.yours" class="btn btn--primary" target="_blank" rel="noopener">🎵 TikTok</a>
+        <a href="https://ko-fi.com/ownasecond/shop" class="btn btn--gold" target="_blank">☕ Vásárolj most €1-ért</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container grid">
+      <div>
+        <h1>Örökíts meg egy másodpercet — örökre</h1>
+        <p class="lead">Vásárolj egy egyedi másodpercet mindössze <b>€1 / £1</b>-ért. Hitelesített digitális tanúsítvány, és a neved az élő Győztesek Falán.</p>
+        <ul class="bullets">
+          <li>🔐 Hitelesített digitális tanúsítvány (megosztható)</li>
+          <li>🧱 Neved az élő Winners Wall-on</li>
+          <li>⏳ <b>Limitált: csak €1 ma</b></li>
+        </ul>
+        <div class="stat">
+          <div class="card"><small>Tulajdonosok ma</small><br><b id="own_today">0</b></div>
+          <div class="card"><small>Összes tulajdonos</small><br><b id="own_total">0</b></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- WINNERS WALL -->
+  <section class="section" id="wall">
+    <div class="container">
+      <h2>Győztesek Fal</h2>
+      <p class="muted"><span style="color:var(--accent)">Élő</span> • Automatikus frissítés</p>
+      <div class="wall__grid" id="winners">Betöltés...</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="container">
+    <div>© <span id="yr"></span> SECUND • Kapcsolat: <a href="mailto:info@ownasecond.io">info@ownasecond.io</a></div>
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent=new Date().getFullYear();
+    async function loadWinners(){
+      try{
+        const res = await fetch('/.netlify/functions/winners');
+        const data = await res.json();
+        const container = document.getElementById('winners');
+        container.innerHTML = data.map(
+          w => `<div class="tile"><span class="pulse"></span><strong>#${w.id}</strong> — ${w.name}<br><span style="color:#aab3c2">${w.location} • ${w.date}</span></div>`
+        ).join('');
+      } catch(e){
+        document.getElementById('winners').innerHTML = "⚠️ Nem sikerült betölteni.";
+      }
+    }
+    loadWinners();
+    setInterval(loadWinners,60000);
+  </script>
+</body>
+</html>
