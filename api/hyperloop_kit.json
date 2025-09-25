@@ -1,6 +1,6 @@
 {
-  "iterations": "10x100k",
-  "timestamp": "2025-09-25T13:30:42.457Z",
+  "iterations": "20x100k",
+  "timestamp": "2025-09-25T13:33:42.651Z",
   "status": "completed",
-  "message": "HyperLoop finished with 10x100k iterations"
+  "message": "HyperLoop finished with 20x100k iterations"
 }
