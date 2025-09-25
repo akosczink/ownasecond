@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,190 +6,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SECUND — Own a Second</title>
   <meta name="description" content="Buy, own and celebrate one second of history. Premium certificate, instant proof, secure checkout." />
-  <meta property="og:title" content="SECUND — Own a Second" />
-  <meta property="og:description" content="Buy, own and celebrate one second of history. Premium certificate, instant proof." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="poster.jpg" />
   <link rel="icon" href="logo.png" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* minimal critical styles – a te style.css-ed fölé megy szépen */
-    :root{--bg:#090b10;--card:#0f131a;--muted:#a1a1aa;--gold1:#f5d37a;--gold2:#e9b949;}
-    *{box-sizing:border-box}
+    :root{--bg:#090b10;--card:#0f131a;--muted:#a1a1aa;--gold1:#f5d37a;--gold2:#e9b949}
     body{margin:0;background:var(--bg);color:#fff;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
     .container{max-width:1120px;margin:0 auto;padding:0 16px}
     .btn{display:inline-flex;align-items:center;justify-content:center;padding:.85rem 1.15rem;border-radius:14px;font-weight:700;border:0;cursor:pointer}
     .btn-gold{background:linear-gradient(135deg,var(--gold1),var(--gold2));color:#111;box-shadow:0 10px 30px rgba(233,185,73,.15)}
-    .btn-ghost{border:1px solid rgba(255,255,255,.16);color:#fff;background:transparent}
-    .card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:20px}
-    header.nav{position:sticky;top:0;backdrop-filter:saturate(180%) blur(10px);background:rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.08);z-index:50}
+    .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:16px}
     .muted{color:var(--muted)}
-    .grid{display:grid;gap:18px}
-    .col-2{grid-template-columns:1fr 1fr}
-    .col-3{grid-template-columns:repeat(3,1fr)}
-    @media (max-width:900px){.col-2,.col-3{grid-template-columns:1fr}}
-    .hero h1{font-size:clamp(36px,6vw,64px);line-height:1.05;margin:0}
-    .safe{max-width:780px;margin:0 auto}
   </style>
 </head>
 <body>
+
   <!-- NAV -->
-  <header class="nav">
-    <div class="container" style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;">
-      <div style="display:flex;gap:10px;align-items:center">
-        <div style="width:32px;height:32px;border-radius:999px;background:linear-gradient(135deg,var(--gold1),var(--gold2));display:grid;place-items:center;color:#111;font-weight:900">S</div>
-        <div style="letter-spacing:.25em;color:#e5e7eb;font-size:12px">SECUND</div>
-      </div>
-      <nav style="display:flex;gap:16px;font-size:14px">
-        <a href="#features" class="muted">Why</a>
-        <a href="#how" class="muted">How</a>
-        <a href="#proof" class="muted">Winners</a>
-        <a href="#pricing" class="muted">Pricing</a>
-        <a href="#faq" class="muted">FAQ</a>
-      </nav>
-      <a class="btn btn-gold" href="#pricing">Own a Second</a>
+  <header class="container" style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08)">
+    <div style="display:flex;gap:10px;align-items:center">
+      <div style="width:32px;height:32px;border-radius:999px;background:linear-gradient(135deg,var(--gold1),var(--gold2));display:grid;place-items:center;color:#111;font-weight:900">S</div>
+      <div style="letter-spacing:.25em;color:#e5e7eb;font-size:12px">SECUND</div>
     </div>
+    <a class="btn btn-gold" href="#pricing">Own a Second</a>
   </header>
 
   <!-- HERO -->
-  <section class="hero" style="padding:64px 0 24px;background:linear-gradient(180deg,#0b0e13 60%,#090b10)">
-    <div class="container safe" style="text-align:center">
-      <div class="muted" style="display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:6px 10px;margin-bottom:12px">
-        <span style="width:8px;height:8px;border-radius:999px;background:var(--gold2)"></span>
-        Time is yours — claim it today
-      </div>
-      <h1>Buy, Own &amp; Celebrate <span style="background:linear-gradient(135deg,var(--gold1),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent">One Second</span> of History</h1>
-      <p class="muted" style="margin:12px auto 0;max-width:720px">
-        Premium, verified collectible. Unique Second ID, instant Winners Wall listing, and a beautiful certificate.
-      </p>
-      <div style="margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-        <a href="#pricing" class="btn btn-gold">Own a Second for €1</a>
-        <a href="#how" class="btn btn-ghost">How it works</a>
-      </div>
-      <p class="muted" style="font-size:12px;margin-top:8px">No crypto. Secure checkout via Ko-fi/Stripe.</p>
-    </div>
-
-    <div class="container" style="margin-top:28px">
-      <div class="card" style="overflow:hidden;padding:18px">
-        <div class="grid col-2">
-          <div style="display:flex;flex-direction:column;justify-content:center;padding:8px 6px">
-            <h3 style="margin:0 0 6px">Digital Certificate</h3>
-            <p class="muted" style="margin:0 0 10px">Personalized, numbered and verifiable with a unique QR code.</p>
-            <ul class="muted" style="margin:0;padding-left:16px">
-              <li>Unique Second ID &amp; public verification</li>
-              <li>Your name on the certificate</li>
-              <li>Winners Wall listing</li>
-            </ul>
-          </div>
-          <div class="card" style="padding:16px;background:#0b0f15">
-            <video poster="poster.jpg" controls playsinline style="width:100%;border-radius:14px;display:block">
-              <source src="hero.mp4" type="video/mp4" />
-            </video>
-          </div>
-        </div>
+  <section style="padding:44px 0 14px;background:linear-gradient(180deg,#0b0e13 60%,#090b10)">
+    <div class="container" style="text-align:center;max-width:820px">
+      <h1 style="margin:0 0 8px;font-size:clamp(36px,6vw,64px);line-height:1.05">
+        Buy, Own &amp; Celebrate <span style="background:linear-gradient(135deg,var(--gold1),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent">One Second</span>
+      </h1>
+      <p class="muted" style="margin:0 0 16px">Premium, verified collectible. Unique Second ID, Winners Wall, printable certificate.</p>
+      <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
+        <a class="btn btn-gold" href="#pricing">Own a Second for €1</a>
+        <a class="btn" style="border:1px solid rgba(255,255,255,.14);background:transparent;color:#fff" href="#how">How it works</a>
       </div>
     </div>
   </section>
 
-  <!-- FEATURES -->
-  <section id="features" style="padding:64px 0;background:#0a0d11">
-    <div class="container safe" style="text-align:center">
-      <h2 style="margin:0">Designed to Convert. Built to Last.</h2>
-      <p class="muted" style="margin-top:8px">Premium visuals, instant trust, mobile-first speed.</p>
-    </div>
-    <div class="container grid col-3" style="margin-top:18px">
-      <div class="card" style="padding:16px"><b>Verifiable Ownership</b><p class="muted">Each Second is unique and checkable on a public proof page.</p></div>
-      <div class="card" style="padding:16px"><b>Beautiful Certificate</b><p class="muted">Printable, shareable, personalized with your name & ID.</p></div>
-      <div class="card" style="padding:16px"><b>Winners Wall</b><p class="muted">Your name appears instantly with your Second ID.</p></div>
+  <!-- HYPERLOOP STATUS (új) -->
+  <section class="container" style="max-width:920px;margin:28px auto">
+    <div id="hyperloop-status"
+         class="card"
+         style="padding:14px 16px;color:#e5e7eb">
+      <strong style="color:#fff">HyperLoop</strong> — loading latest result…
     </div>
   </section>
 
-  <!-- HOW -->
-  <section id="how" style="padding:64px 0;background:linear-gradient(180deg,#0a0d11,#0b0e13)">
-    <div class="container grid col-3">
-      <div class="card" style="padding:16px"><div class="muted">01</div><b>Choose</b><p class="muted">Pick your Second—or let us surprise you.</p></div>
-      <div class="card" style="padding:16px"><div class="muted">02</div><b>Own</b><p class="muted">Pay securely. Your unique ID is minted instantly.</p></div>
-      <div class="card" style="padding:16px"><div class="muted">03</div><b>Show</b><p class="muted">Download your certificate & join the Winners Wall.</p></div>
+  <!-- CONTENT PLACEHOLDER (meglévő tartalmad maradhat alatta) -->
+  <section id="pricing" class="container" style="padding:28px 0 60px">
+    <div class="card" style="padding:18px;margin-bottom:12px">
+      <div class="muted">Own a Second</div>
+      <div style="font-size:40px;font-weight:900;background:linear-gradient(135deg,var(--gold1),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent">€1</div>
+      <a class="btn btn-gold" href="#buy-1">Buy for €1</a>
+    </div>
+    <div class="card" style="padding:18px">
+      <div class="muted">Digital Certificate</div>
+      <div style="font-size:40px;font-weight:900;background:linear-gradient(135deg,var(--gold1),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent">€5</div>
+      <a class="btn btn-gold" href="#buy-5">Get Certificate €5</a>
     </div>
   </section>
 
-  <!-- PROOF -->
-  <section id="proof" style="padding:64px 0;background:#0a0d11">
-    <div class="container safe" style="text-align:center">
-      <h2 style="margin:0">Winners Wall</h2>
-      <p class="muted" style="margin-top:8px">Latest owners (auto-filled if <code>winners.json</code> elérhető).</p>
-    </div>
-    <div class="container grid col-3" id="winners-grid" style="margin-top:18px"></div>
-  </section>
-
-  <!-- PRICING -->
-  <section id="pricing" style="padding:72px 0;background:linear-gradient(180deg,#0b0e13,#0a0d11)">
-    <div class="container grid col-2">
-      <div class="card" style="padding:18px">
-        <div class="muted">Own a Second</div>
-        <div style="font-size:40px;font-weight:900;background:linear-gradient(135deg,var(--gold1),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent">€1</div>
-        <ul class="muted" style="padding-left:16px">
-          <li>Unique Second ID</li><li>Winners Wall listing</li><li>Owner profile stub</li>
-        </ul>
-        <a class="btn btn-gold" href="#buy-1">Buy for €1</a>
-      </div>
-      <div class="card" style="padding:18px">
-        <div class="muted">Digital Certificate</div>
-        <div style="font-size:40px;font-weight:900;background:linear-gradient(135deg,var(--gold1),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent">€5</div>
-        <ul class="muted" style="padding-left:16px">
-          <li>Premium printable certificate</li><li>Your name on it</li><li>Verified QR</li>
-        </ul>
-        <a class="btn btn-gold" href="#buy-5">Get Certificate €5</a>
-      </div>
-    </div>
-    <p class="container muted" style="text-align:center;margin-top:10px;font-size:12px">Secure checkout via Ko-fi/Stripe. VAT handled by provider.</p>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" style="padding:64px 0;background:#0a0d11">
-    <div class="container safe" style="text-align:center">
-      <h2 style="margin:0">FAQ</h2>
-    </div>
-    <div class="container card" style="margin-top:18px;padding:10px">
-      <details style="padding:10px"><summary><b>Is this crypto?</b></summary><p class="muted">No. Traditional payments. Your ownership is recorded in our registry and public proof page.</p></details>
-      <details style="padding:10px"><summary><b>Can I resell?</b></summary><p class="muted">Secondary market arrives later. Focus on collecting now.</p></details>
-      <details style="padding:10px"><summary><b>Do I get physical?</b></summary><p class="muted">You receive a high-res digital certificate ready to print. Premium physicals are planned.</p></details>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer style="background:#000;padding:28px 0">
-    <div class="container" style="display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap">
-      <div style="display:flex;gap:10px;align-items:center">
-        <div style="width:32px;height:32px;border-radius:999px;background:linear-gradient(135deg,var(--gold1),var(--gold2));display:grid;place-items:center;color:#111;font-weight:900">S</div>
-        <span class="muted" style="font-size:12px">© <span id="yr"></span> SECUND — Time is Yours</span>
-      </div>
-      <div style="display:flex;gap:14px;font-size:12px">
-        <a class="muted" href="#">Terms</a>
-        <a class="muted" href="#">Privacy</a>
-        <a class="muted" href="#">Contact</a>
-      </div>
-    </div>
+  <footer class="container" style="padding:28px 0;border-top:1px solid rgba(255,255,255,.08);color:#cbd5e1">
+    © <span id="yr"></span> SECUND — Time is Yours
   </footer>
 
   <script>
-    document.getElementById("yr").textContent = new Date().getFullYear();
-    // Winners Wall: próbálja tölteni a winners.json-t; ha nincs, csendben kihagyja.
-    (async () => {
-      try {
-        const r = await fetch("winners.json", {cache:"no-store"});
-        if(!r.ok) return;
-        const data = await r.json();
-        const grid = document.getElementById("winners-grid");
-        (data.slice(0,9)).forEach((w,i)=>{
-          const el = document.createElement("div");
-          el.className = "card";
-          el.style.padding = "14px";
-          el.innerHTML = `<b>${w.name || "Owner"}</b><div class="muted">ID #${String(w.id||100+i).padStart(4,"0")}</div>`;
-          grid.appendChild(el);
-        });
-      } catch(_) {}
-    })();
+    document.getElementById('yr').textContent = new Date().getFullYear();
   </script>
   <script src="script.js" defer></script>
 </body>
