@@ -20,8 +20,7 @@ jobs:
         with:
           node-version: "18"
 
-      # Ha nincs package.json, az npm install lépés hibát dobna.
-      # Ez a lépés csak akkor fut, ha létezik package.json.
+      # Ha van package.json, akkor futtat npm install-t
       - name: Install dependencies (if any)
         if: ${{ hashFiles('**/package.json') != '' }}
         run: npm install
@@ -29,7 +28,7 @@ jobs:
       - name: Run HyperLoop
         run: |
           echo "Running HyperLoop with ${{ github.event.inputs.iterations }}"
-          node api/hyperloop.js --iterations=${{ github.event.inputs.iterations }}
+          node api/hyperloop.js "--iterations=${{ github.event.inputs.iterations }}"
 
       - name: Upload results
         uses: actions/upload-artifact@v3
