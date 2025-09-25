@@ -1,0 +1,35 @@
+name: HyperLoop
+
+on:
+  workflow_dispatch:
+    inputs:
+      iterations:
+        description: 'Number of iterations'
+        required: true
+        default: '5x100k'
+
+jobs:
+  run-hyperloop:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run HyperLoop
+        run: |
+          echo "Running HyperLoop with ${{ github.event.inputs.iterations }}"
+          node api/hyperloop.js --iterations ${{ github.event.inputs.iterations }}
+
+      - name: Upload results
+        uses: actions/upload-artifact@v3
+        with:
+          name: hyperloop-results
+          path: api/hyperloop_kit.json
