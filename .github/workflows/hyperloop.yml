@@ -20,7 +20,6 @@ jobs:
         with:
           node-version: "18"
 
-      # Ha van package.json, akkor futtat npm install-t
       - name: Install dependencies (if any)
         if: ${{ hashFiles('**/package.json') != '' }}
         run: npm install
@@ -31,7 +30,7 @@ jobs:
           node api/hyperloop.js "--iterations=${{ github.event.inputs.iterations }}"
 
       - name: Upload results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: hyperloop-results
           path: api/hyperloop_kit.json
