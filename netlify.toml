@@ -1,3 +1,24 @@
 [build]
-publish='/'
-functions='netlify/functions'
+  publish = "."
+  functions = "netlify/functions"
+
+# Alap redirect szabályok
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# Biztonságos header beállítások
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+
+# Cache tiltás a hyperloop JSON-ra
+[[headers]]
+  for = "/api/hyperloop_kit.json"
+  [headers.values]
+    Cache-Control = "no-store, must-revalidate"
