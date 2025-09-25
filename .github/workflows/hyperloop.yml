@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -29,8 +31,10 @@ jobs:
           echo "Running HyperLoop with ${{ github.event.inputs.iterations }}"
           node api/hyperloop.js "--iterations=${{ github.event.inputs.iterations }}"
 
-      - name: Upload results
-        uses: actions/upload-artifact@v4
-        with:
-          name: hyperloop-results
-          path: api/hyperloop_kit.json
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add api/hyperloop_kit.json
+          git commit -m "update: hyperloop results (${{ github.event.inputs.iterations }})" || echo "No changes to commit"
+          git push
