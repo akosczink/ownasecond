@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       iterations:
-        description: 'Number of iterations'
+        description: "Number of iterations (e.g. 5x100k, 10x100k)"
         required: true
-        default: '5x100k'
+        default: "5x100k"
 
 jobs:
   run-hyperloop:
@@ -18,15 +18,18 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: "18"
 
-      - name: Install dependencies
+      # Ha nincs package.json, az npm install lépés hibát dobna.
+      # Ez a lépés csak akkor fut, ha létezik package.json.
+      - name: Install dependencies (if any)
+        if: ${{ hashFiles('**/package.json') != '' }}
         run: npm install
 
       - name: Run HyperLoop
         run: |
           echo "Running HyperLoop with ${{ github.event.inputs.iterations }}"
-          node api/hyperloop.js --iterations ${{ github.event.inputs.iterations }}
+          node api/hyperloop.js --iterations=${{ github.event.inputs.iterations }}
 
       - name: Upload results
         uses: actions/upload-artifact@v3
