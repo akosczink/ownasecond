@@ -8,6 +8,9 @@ on:
         required: true
         default: "5x100k"
 
+permissions:
+  contents: write
+
 jobs:
   run-hyperloop:
     runs-on: ubuntu-latest
